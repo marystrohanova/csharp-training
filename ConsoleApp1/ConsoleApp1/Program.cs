@@ -17,19 +17,15 @@ namespace ConsoleApp1
             {
                 List<int> userInputNumberNoDups = RemoveDuplicates(userInputNumbers);
 
-                Console.WriteLine();
-                Console.WriteLine("=> Numbers to be summed: ");
-                Console.WriteLine();
+                Console.Write("\n => Numbers to be summed: ");
 
                 foreach (var number in userInputNumberNoDups)
                 {
                     Console.Write(number + " ");
                 }
 
-                Console.WriteLine();
-
                 int sum = userInputNumberNoDups.Sum();
-                Console.WriteLine("Sum = " + sum);
+                Console.WriteLine("\n || Sum = " + sum + " ||\n");
                 Console.ReadLine();
             }
             else
@@ -47,7 +43,7 @@ namespace ConsoleApp1
 
         private static List<int> ConvertArrayStringToListInt(string[] userInput)
         {
-            Console.WriteLine("=> Converting string into list of numbers ...");
+            Console.WriteLine("\n => Converting string into list of numbers ... \n");
 
             List<int> numbersList = new List<int>();
 
@@ -59,9 +55,7 @@ namespace ConsoleApp1
                 }
                 catch (FormatException e)
                 {
-                    Console.WriteLine();
                     Console.WriteLine("=> Not a number : " + userInput[i]);
-                    Console.WriteLine();
                 }
             }
 
@@ -70,7 +64,7 @@ namespace ConsoleApp1
 
         private static List<int> RemoveDuplicates(List<int> numbers)
         {
-            Console.WriteLine("=> Removing duplicates from list of numbers...");
+            Console.WriteLine("\n => Removing duplicates from list of numbers...");
 
             List<int> noDupLis = new List<int>();
 
