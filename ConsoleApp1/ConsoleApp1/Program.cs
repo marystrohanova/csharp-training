@@ -17,8 +17,9 @@ namespace ConsoleApp1
             {
                 List<int> userInputNumberNoDups = RemoveDuplicates(userInputNumbers);
 
-                Console.WriteLine("");
-                Console.WriteLine("Numbers to be summed: ");
+                Console.WriteLine();
+                Console.WriteLine("=> Numbers to be summed: ");
+                Console.WriteLine();
 
                 foreach (var number in userInputNumberNoDups)
                 {
@@ -33,20 +34,20 @@ namespace ConsoleApp1
             }
             else
             {
-                Console.WriteLine("No numbers entered! Please try again =) ");
+                Console.WriteLine("=> No numbers entered! Please try again =) ");
                 Console.ReadLine();
             }
         }
 
         private static string UserInput()
         {
-            Console.WriteLine("Enter numbers: ");
+            Console.WriteLine("=> Enter numbers: ");
             return Console.ReadLine();
         }
 
         private static List<int> ConvertArrayStringToListInt(string[] userInput)
         {
-            Console.WriteLine("Converting string into list of numbers ...");
+            Console.WriteLine("=> Converting string into list of numbers ...");
 
             List<int> numbersList = new List<int>();
 
@@ -56,31 +57,24 @@ namespace ConsoleApp1
                 {
                     numbersList.Add(Convert.ToInt32(userInput[i]));
                 }
-                catch (FormatException)
+                catch (FormatException e)
                 {
-              
+                    Console.WriteLine();
+                    Console.WriteLine("=> Not a number : " + userInput[i]);
+                    Console.WriteLine();
                 }
             }
-
-     
 
             return numbersList;
         }
 
         private static List<int> RemoveDuplicates(List<int> numbers)
         {
-            Console.WriteLine("Removing duplicates from list of numbers...");
+            Console.WriteLine("=> Removing duplicates from list of numbers...");
 
             List<int> noDupLis = new List<int>();
 
-            try
-            {
-               noDupLis =  numbers.Distinct().ToList();
-            }
-            catch (ArgumentNullException )
-            {
-                Console.WriteLine("Incorrect input!");
-            }
+            noDupLis =  numbers.Distinct().ToList();
 
             return noDupLis;
 
