@@ -53,7 +53,7 @@ namespace ConsoleApp1
                 {
                     numbersList.Add(Convert.ToInt32(userInput[i]));
                 }
-                catch (FormatException e)
+                catch (FormatException)
                 {
                     Console.WriteLine("=> Not a number : " + userInput[i]);
                 }
@@ -66,11 +66,11 @@ namespace ConsoleApp1
         {
             Console.WriteLine("\n => Removing duplicates from list of numbers...");
 
-            List<int> noDupLis = new List<int>();
+            List<int> noDupList = new List<int>();
 
-            noDupLis =  numbers.Distinct().ToList();
+            noDupList =  numbers.Distinct().ToList();
 
-            return noDupLis;
+            return noDupList;
 
         }
     }
