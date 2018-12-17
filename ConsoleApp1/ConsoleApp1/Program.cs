@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
+
 
 namespace ConsoleApp1
 {
@@ -33,6 +35,8 @@ namespace ConsoleApp1
                 Console.WriteLine("=> No numbers entered! Please try again =) ");
                 Console.ReadLine();
             }
+
+            doFibonacci();
         }
 
         private static string UserInput()
@@ -68,10 +72,50 @@ namespace ConsoleApp1
 
             List<int> noDupList = new List<int>();
 
-            noDupList =  numbers.Distinct().ToList();
+            noDupList = numbers.Distinct().ToList();
 
             return noDupList;
+        }
 
+        private static void doFibonacci()
+        {
+            int number = 0;
+
+            Console.Write("Enter a number: ");
+            string input = Console.ReadLine();
+            try
+            {
+                number = Int32.Parse(input);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine(input + " is not a number! Try again! :) ");
+            }
+
+            if (number != 0 || number < 0)
+            {
+
+                for (int i = 0; i < 15; i++)
+                {
+                    Console.WriteLine(Fibonacci(i));
+                }
+            }
+
+            Console.ReadLine();
+
+        }
+
+        public static int Fibonacci(int n)
+        {
+            int a = 0;
+            int b = 1;
+            for (int i = 0; i < n; i++)
+            {
+                int temp = a;
+                a = b;
+                b = temp + b;
+            }
+            return a;
         }
     }
 }
